@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   int i, x, y;
+   string input;
+   string alpha="abcdefghijklmnopqrstuvwxyz";
+
+   cout << " Enter a string:\n";
+   cin >> input;
+    cout <<"Encrypt count:\n";
+    cin>> y;
+   
+   while(y>26){
+   y=y%26;
+   }
+
+         for(i = 0; i < input.length() ; i++)
+         {
+             int k=0;
+             for(int j=0; j<alpha.length();j++)
+             {
+                 if(input[i]==alpha[j])
+                 {
+                     k=j+y;
+                 }
+             }
+             
+            while(k>=26)
+            {
+                k=k%26;
+            }
+            input[i] = alpha[k];
+         }
+         
+
+         cout << "\nEncrypted string: " << input << endl;
+
+
+         for(i = 0; i < input.length() ; i++)
+         {
+             int k=0;
+             for(int j=0; j<alpha.length();j++)
+             {
+                 if(input[i]==alpha[j])
+                 {
+                     k=j-y;
+                 }
+             }
+             
+            while(k<0)
+            {
+               k=26+k;
+            }
+            input[i] = alpha[k];
+         
+         }
+       
+        cout << "\nDecrypted string: " << input << endl;
+
+   
+   return 0;
+}
